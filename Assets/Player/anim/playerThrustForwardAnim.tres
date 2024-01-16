@@ -1,0 +1,31 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bqocr60nxy3ra"]
+
+[ext_resource type="Texture2D" uid="uid://4ns6pcyguc7" path="res://Assets/Player/Thrust/playerThrustForward0.png" id="1_24ud1"]
+[ext_resource type="Texture2D" uid="uid://c7h0ikbmgesli" path="res://Assets/Player/Thrust/playerThrustForward1.png" id="2_s1l25"]
+[ext_resource type="Texture2D" uid="uid://c2n6hvxri24bk" path="res://Assets/Player/Thrust/PlayerThrustLR0.png" id="3_d73oh"]
+[ext_resource type="Texture2D" uid="uid://d25ywwpl5buu5" path="res://Assets/Player/Thrust/playerThrustLR1.png" id="4_i5o4x"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_24ud1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s1l25")
+}],
+"loop": true,
+"name": &"playerForwardThrust",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d73oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_i5o4x")
+}],
+"loop": true,
+"name": &"playerLRThrust",
+"speed": 5.0
+}]
