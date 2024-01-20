@@ -1,17 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://btbmrln82uqbc"]
 
-[ext_resource type="Script" path="res://Scenes/Player.gd" id="1_vtxww"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_vtxww"]
 [ext_resource type="Texture2D" uid="uid://bykg444vd8vnn" path="res://Assets/Player/PlayerForward.png" id="1_yever"]
-[ext_resource type="SpriteFrames" uid="uid://bqocr60nxy3ra" path="res://Assets/Player/anim/playerThrustForwardAnim.tres" id="3_u4xd4"]
+[ext_resource type="SpriteFrames" uid="uid://bqocr60nxy3ra" path="res://Assets/Animations/playerThrustForwardAnim.tres" id="3_u4xd4"]
 [ext_resource type="AudioStream" uid="uid://c86wj6q4k5cul" path="res://Assets/Sounds/playerShootSound1.mp3" id="4_n8i60"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_teit5"]
 size = Vector2(16, 19.5)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 scale = Vector2(4, 4)
+collision_mask = 4
 script = ExtResource("1_vtxww")
+metadata/Type = "Player"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yever")
@@ -19,6 +21,7 @@ texture = ExtResource("1_yever")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.75)
 shape = SubResource("RectangleShape2D_teit5")
+metadata/Type = "Player"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 8.75)

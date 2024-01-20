@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bquqpcmq8g2i1"]
+
+[ext_resource type="Texture2D" uid="uid://dv7d0dlv4pt8o" path="res://Assets/Enemies/Mouther/Pink_Enemy1.png" id="1_ntgka"]
+[ext_resource type="Texture2D" uid="uid://b8rrx2gbomrst" path="res://Assets/Enemies/Mouther/Pink_Enemy2.png" id="2_muw5w"]
+[ext_resource type="Texture2D" uid="uid://c427wc4i2lfeo" path="res://Assets/Enemies/Mouther/Pink_Enemy3.png" id="3_46u0f"]
+[ext_resource type="Texture2D" uid="uid://cfnisl8b2x4px" path="res://Assets/Enemies/Mouther/Pink_Enemy4.png" id="4_8js3i"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ntgka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_muw5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_46u0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8js3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_46u0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_muw5w")
+}],
+"loop": true,
+"name": &"mouther_anim",
+"speed": 5.0
+}]

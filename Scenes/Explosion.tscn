@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgs1vq4cevq2m"]
+
+[ext_resource type="Script" path="res://Scenes/Explosion.gd" id="1_vfnsk"]
+
+[sub_resource type="Curve" id="Curve_6bx2y"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ihsap"]
+curve = SubResource("Curve_6bx2y")
+
+[sub_resource type="Gradient" id="Gradient_bryuv"]
+offsets = PackedFloat32Array(0, 0.528662, 1)
+colors = PackedColorArray(0.986928, 0.113667, 1.92523e-07, 1, 1, 1, 1, 1, 0.866667, 0.313726, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1ktlv"]
+gradient = SubResource("Gradient_bryuv")
+
+[sub_resource type="Curve" id="Curve_1liih"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gmk74"]
+width = 1024
+curve = SubResource("Curve_1liih")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aiut1"]
+lifetime_randomness = 0.3
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+angle_curve = SubResource("CurveTexture_ihsap")
+spread = 180.0
+initial_velocity_min = 26.98
+initial_velocity_max = 87.81
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_gmk74")
+color_ramp = SubResource("GradientTexture1D_1ktlv")
+
+[node name="Explosion_particles" type="GPUParticles2D"]
+position = Vector2(4.75, -16.5)
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_aiut1")
+lifetime = 2.0
+explosiveness = 1.0
+randomness = 0.56
+script = ExtResource("1_vfnsk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true

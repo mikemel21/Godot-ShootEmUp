@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://b447nmrpgfu7"]
+
+[ext_resource type="Texture2D" uid="uid://dhs4soqppy5i2" path="res://Assets/Enemies/Sploofer/yellow-enemy1.png" id="1_gom2h"]
+[ext_resource type="Texture2D" uid="uid://dm7pdm7wvk0d2" path="res://Assets/Enemies/Sploofer/yellow-enemy2.png" id="2_2ewqs"]
+[ext_resource type="Texture2D" uid="uid://bed71bjm0ywjn" path="res://Assets/Enemies/Sploofer/yellow-enemy3.png" id="3_aq7uv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gom2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2ewqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aq7uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2ewqs")
+}],
+"loop": true,
+"name": &"sploofer_anim",
+"speed": 10.0
+}]

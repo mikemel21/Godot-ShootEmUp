@@ -1,12 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://uylgn53257q6"]
 
-[ext_resource type="Script" path="res://Scenes/Player-Projectile.gd" id="1_o8h1t"]
+[ext_resource type="Script" path="res://Scripts/Player-Projectile.gd" id="1_o8h1t"]
 [ext_resource type="Texture2D" uid="uid://m5ov06h7kwuw" path="res://Assets/Player/playerProjectile0.png" id="2_vy86i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evf1w"]
 size = Vector2(8, 36)
 
-[node name="Player-Projectile" type="Area2D"]
+[node name="Player-Projectile" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_o8h1t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
