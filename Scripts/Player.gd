@@ -1,7 +1,9 @@
 class_name Player extends CharacterBody2D
 
-const SPEED = 500.0
+var SCORE = 0
+var HEALTH = 100
 
+const SPEED = 500.0
 var shotTimer = 0.25
 var hasShot = false
 
@@ -13,6 +15,7 @@ var hasShot = false
 @onready var barrel = $Barrel
 @onready var player_projectile = preload("res://Scenes/Player-Projectile.tscn")
 @onready var shotSound = $AudioStreamPlayer2D
+@onready var scoreLabel = $"../UI/HBoxContainer/VBoxContainer2/Score"
 
 var EXPLOSION_EFFECT = preload("res://Scenes/Explosion.tscn")
 var view = get_viewport_rect().size
@@ -33,6 +36,8 @@ func Shoot():
 		get_tree().root.add_child(projectile)
 		projectile.transform = barrel.global_transform
 		projectile.start()
+		projectile.add_to_group("projectileGroup")
+		projectile.connect("scoreU", _on_enemy_killed)
 		await get_tree().create_timer(0.25).timeout
 		hasShot = false
 
@@ -56,3 +61,7 @@ func _process(delta):
 	
 	# screen barriers
 	global_position = global_position.clamp(Vector2.ZERO, get_viewport_rect().size)
+	
+func _on_enemy_killed ():
+	SCORE += 10
+	scoreLabel.text = str(SCORE)

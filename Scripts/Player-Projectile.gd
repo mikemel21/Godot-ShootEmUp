@@ -1,9 +1,12 @@
 class_name Player_Projectile extends CharacterBody2D
-
 var SPEED = 750
 var damage = 10
+signal scoreU
 
+#@onready var score = $UI/HBoxContainer/VBoxContainer2/Score
+	
 func start ():
+	
 	#position = _pos
 	velocity = Vector2(transform.x * SPEED)
 
@@ -17,6 +20,7 @@ func _physics_process(delta):
 		if collision.get_collider().get_meta("Type") == "Enemy":
 			# call the method in enemy to damage it	
 			collision.get_collider().hit_by_projectile(damage)
+			scoreU.emit()
 			# destroy projectile
 			queue_free()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drd680a7vi2xl"]
+[gd_scene load_steps=11 format=3 uid="uid://drd680a7vi2xl"]
 
 [ext_resource type="PackedScene" uid="uid://btbmrln82uqbc" path="res://Scenes/Player.tscn" id="1_v367b"]
 [ext_resource type="PackedScene" uid="uid://bp8dp2ovdye8t" path="res://Scenes/Enemies/Enemy.tscn" id="2_sfoio"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cjnwnkds7trml" path="res://Assets/Icons/HealthIcon.png" id="4_ib4tu"]
 [ext_resource type="Texture2D" uid="uid://h1nibocy488u" path="res://Assets/Icons/ScoreIcon.png" id="4_raxt0"]
 [ext_resource type="FontFile" uid="uid://dh5gfpnrq0xm2" path="res://Assets/Fonts/axaxax bd.otf" id="6_qgdjw"]
+
+[sub_resource type="GDScript" id="GDScript_0wjtw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dvo1"]
 bg_color = Color(0.6, 0.6, 0.6, 0.52549)
@@ -22,9 +24,10 @@ font_size = 26
 font = ExtResource("6_qgdjw")
 font_size = 26
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["ToMain"]]
+script = SubResource("GDScript_0wjtw")
 
-[node name="Player" parent="." instance=ExtResource("1_v367b")]
+[node name="Player" parent="." groups=["ToMain"] instance=ExtResource("1_v367b")]
 top_level = true
 position = Vector2(600, 650)
 
