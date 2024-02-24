@@ -13,7 +13,9 @@ var hasShot = false
 @onready var barrel = $Barrel
 @onready var player_projectile = preload("res://Scenes/Player-Projectile.tscn")
 @onready var shotSound = $AudioStreamPlayer2D
+
 var EXPLOSION_EFFECT = preload("res://Scenes/Explosion.tscn")
+var view = get_viewport_rect().size
 
 func get_input():
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -51,3 +53,6 @@ func die():
 func _process(delta):
 	get_input()
 	move_and_collide(velocity * delta)
+	
+	# screen barriers
+	global_position = global_position.clamp(Vector2.ZERO, get_viewport_rect().size)
