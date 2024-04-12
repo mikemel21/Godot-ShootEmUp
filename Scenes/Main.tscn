@@ -8,6 +8,15 @@
 [ext_resource type="FontFile" uid="uid://dh5gfpnrq0xm2" path="res://Assets/Fonts/axaxax bd.otf" id="6_qgdjw"]
 
 [sub_resource type="GDScript" id="GDScript_0wjtw"]
+script/source = "extends Node2D
+
+const Enemy = preload(\"res://Scenes/Enemies/Enemy.tscn\")
+
+func _on_spawn_timer_timeout():
+	var e = Enemy.instantiate()
+	e.position = Vector2(randf_range(20, get_viewport().size.x-20), -1)
+	add_child(e)
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dvo1"]
 bg_color = Color(0.6, 0.6, 0.6, 0.52549)
@@ -85,3 +94,8 @@ size_flags_vertical = 6
 text = "100
 "
 label_settings = SubResource("LabelSettings_pxqb4")
+
+[node name="spawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="spawnTimer" to="." method="_on_spawn_timer_timeout"]
